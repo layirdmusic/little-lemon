@@ -1,0 +1,163 @@
+/* DEFAULTS (START) */
+img {
+    height: 200px
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0
+}
+/* DEFAULTS (END) */
+
+/* COLOR VARIABLES (START) */
+:root {
+    --darkgreen: #495E57;
+    --lightgreen: #48742C;
+    --yellow: #F4CE14;
+    --black: #333333;
+    --peach: #EE9972;
+
+}
+/* COLOR VARIABLES (END) */
+
+/* UTILITIES (START) */
+.flex-row-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-column-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.flex-row-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.flex-row-center-spread {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.flex-row-top-spread {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+
+}
+/* UTILITIES (END) */
+
+/* NAV DESKTOP (START) */
+nav {
+    padding-top: 35px ;
+    padding-bottom: 35px;
+}
+
+.nav-content-container {
+ width: 100%;
+ max-width: 1000px;
+}
+.menu-links-container ul li {
+    margin: 5px 15px 5px 15px;
+    font-family: 'Karla', sans-serif;
+    font-weight:bold;
+    font-size: 20px;
+}
+.menu-links-container ul li a {
+    color: #333333;
+    transition: color 0.5s ease-in-out;
+}
+
+.nav-logo {
+    height: 60px;
+}
+
+.nav-underline {
+    background-color: var(--yellow);
+    height: 5px;
+    width: 0%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, width 0.5s ease-in-out;
+}
+
+    /* Nav Hover Effects (Starts) */
+    .menu-links-container ul li a:hover {
+        color: var(--darkgreen);
+    }
+
+    .menu-links-container ul li a:hover + .nav-underline {
+        opacity: 1;
+        width: 50%
+    }
+    /* Nav Hover Effects (Ends) */
+
+/* NAV DESKTOP (END) */
+
+/* FOOTER DESKTOP (START) */
+.footer-content-container {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.footer-content h2 {
+    margin-bottom: 15px;
+}
+
+.footer-content ul {
+font-family: 'Karla', sans-serif;
+font-weight:bold;
+font-size: 20px;
+}
+
+.footer-content ul li {
+    margin-bottom: 15px;
+}
+
+.footer-socials-container ul li a {
+    margin-right: 5px;
+}
+
+.footer-content img {
+    height: 20px;
+}
+
+.footer-logo-container div {
+    height: 100%;
+}
+/* FOOTER DESKTOP (END) */
+
