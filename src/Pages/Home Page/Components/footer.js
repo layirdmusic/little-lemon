@@ -5,8 +5,8 @@ import facebook from "../../../images/facebook.svg"
 
 export default function Footer() {
     return (
-        <footer className="footer-section-container flex-row-center">
-            <section className="footer-content-container flex-row-top-spread">
+        <footer className="footer-section-container">
+            <section className="footer-content-container">
                 <div className="footer-logo-container flex-column-left">
                     <img src={logo} alt="Little Lemon Logo" className="footer-logo" />
                 </div>

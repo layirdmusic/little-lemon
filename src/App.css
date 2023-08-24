@@ -1,3 +1,8 @@
+/* ___________________________________________________ */
+/* DEFAULTS & UTLITIES */
+/* ___________________________________________________ */
+
+
 /* DEFAULTS (START) */
 img {
     height: 200px
@@ -32,7 +37,8 @@ h1,h2,h3,h4,h5,h6 {
     --yellow: #F4CE14;
     --black: #333333;
     --peach: #EE9972;
-
+    --gray: #EDEFEE;
+    --white: #FFF;
 }
 /* COLOR VARIABLES (END) */
 
@@ -69,7 +75,7 @@ h1,h2,h3,h4,h5,h6 {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 
 }
 
@@ -82,16 +88,29 @@ h1,h2,h3,h4,h5,h6 {
 }
 /* UTILITIES (END) */
 
+/* ___________________________________________________ */
+/* DESKTOP CSS */
+/* ___________________________________________________ */
+
 /* NAV DESKTOP (START) */
 nav {
-    padding-top: 35px ;
-    padding-bottom: 35px;
+    padding: 35px;
+}
+
+.menu-wrap {
+    display: none;
 }
 
 .nav-content-container {
  width: 100%;
  max-width: 1000px;
+ display: grid;
+ grid-template-columns: repeat(2, auto);
+ justify-content: center;
+ justify-items: center;
+ align-items: center;
 }
+
 .menu-links-container ul li {
     margin: 5px 15px 5px 15px;
     font-family: 'Karla', sans-serif;
@@ -99,12 +118,15 @@ nav {
     font-size: 20px;
 }
 .menu-links-container ul li a {
-    color: #333333;
+    color: var(--black);
+    white-space: nowrap;
     transition: color 0.5s ease-in-out;
 }
 
 .nav-logo {
     height: 60px;
+    margin-right: 30px;
+    margin-bottom: 5px;
 }
 
 .nav-underline {
@@ -115,7 +137,7 @@ nav {
     transition: opacity 0.5s ease-in-out, width 0.5s ease-in-out;
 }
 
-    /* Nav Hover Effects (Starts) */
+    /* Nav Hover Effects (Start) */
     .menu-links-container ul li a:hover {
         color: var(--darkgreen);
     }
@@ -124,14 +146,377 @@ nav {
         opacity: 1;
         width: 50%
     }
-    /* Nav Hover Effects (Ends) */
+    /* Nav Hover Effects (End) */
 
 /* NAV DESKTOP (END) */
 
-/* FOOTER DESKTOP (START) */
-.footer-content-container {
+/* HEADER DESKTOP (START) */
+header {
+    background-color: var(--darkgreen);
+    height: 445px;
+    padding: 40px
+
+}
+
+.header-content-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 600px));
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.header-content {
+    padding: 0 15px 0 15px;
+}
+
+.header-content h1 {
+    font-family: 'Markazi Text', serif;
+    color: var(--yellow);
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.header-content h3 {
+    color: var(--white);
+    font-size: 25px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.header-content p {
+    color: var(--white);
+    font-family: Karla;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    margin-top: 24px;
+    max-width: 404px;
+}
+
+.header-content a {
+    display: flex;
+    width: 300px;
+    height: 58px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: var(--white);
+    color: var(--black);
+    font-family: Karla;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 24px;
+    transition: background-color 0.5s ease-in-out ;
+}
+
+.header-image-container {
+    width: 100%;
+    height: 100%;
+}
+
+.header-img {
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    min-height: 400px;
+    background: url("./images/restauranfood.jpg") center center/cover;
+    border-radius: 8px;
+}
+
+    /* Header Hover Effect (Start) */
+        .header-content a:hover {
+            background-color: var(--yellow);
+        }
+    /* Header Hover Effect (end) */
+
+
+/* HEADER DESKTOP (END) */
+
+/* SPECIALS DESKTOP (START) */
+.specials-section-container {
+    width: 100%;
+}
+
+.specials-content-container {
+    padding: 46px 40px 46px 40px;
+    background-color: var(--gray);
+}
+
+.specials-content {
     width: 100%;
     max-width: 1000px;
+}
+
+.specials-content h2 {
+    color: var(--darkgreen);
+    font-family: Karla;
+    font-size: 35px;
+    font-weight: 700;
+
+}
+
+.specials-content a {
+    display: flex;
+    width: 300px;
+    height: 58px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: var(--darkgreen);
+    color: var(--white);
+    font-family: Karla;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.specials-card-container {
+    height: 576px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(auto,300px));
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    gap: 21px;
+}
+
+.specials-card {
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    padding: 6px 6px 12px 6px;
+}
+
+.specials-card-img {
+   width: 100%;
+   height: 207px;
+   border-radius: 8px;
+}
+
+.baked-salmon-img {
+    background: url(./images/Baked-Salmon.jpg) center center/cover;
+}
+.lemon-dessert-img {
+    background: url(./images/lemon\ dessert.jpg) center center/cover;
+}
+.greek-salad-img {
+    background: url(./images/greek\ salad.jpg) center center/cover;
+}
+
+.menu-item {
+    color: var(--darkgreen);
+    font-family: 'Markazi Text', serif;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.menu-price {
+    color: var(--darkgreen);
+    text-align: right;
+    font-family: 'Karla', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.specials-card-title {
+    margin-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.specials-card-text {
+    width: 100%;
+    max-width: 292px;
+}
+
+.specials-card-text p {
+    margin-top: 30px;
+    color: var(--darkgreen);
+    font-family: Karla;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.specials-card-text a {
+    width: 100%;
+    display: flex;
+    height: 49px;
+    border-radius: 8px;
+    background: var(--gray);
+    color: var(--lightgreen);
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+.specials-card-text a img {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+/* SPECIALS DESKTOP (END) */
+
+/* TESTIMONIALS DESKTOP (START) */
+.testimonials-section-container {
+    height: 492px;
+    background-color: var(--darkgreen);
+    padding: 40px;
+}
+
+.testimonials-section-container h2 {
+    color: var(--yellow);
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    font-size: 35px;
+    font-weight: 800;
+    margin-bottom: 55px;
+}
+
+.testimonials-card-container {
+    width: 100%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(4,minmax(auto, 235px));
+    gap: 44px;
+}
+
+.testimonials-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 20px;
+    height: 240px;
+}
+
+.rating-container img {
+    width: 24px;
+    height: 24px;
+}
+
+.profile-container {
+    margin-top: 17px;
+}
+
+.profile-img-joseph {
+    background: url(./images/joseph.jpg) center center/cover;
+    width: 69px;
+    height: 69px;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.testimonial-container {
+    margin-top: 17px;
+}
+
+.testimonial-container img {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+}
+
+.testimonial-container p {
+    color: var(--black);
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+/* TESTIMONIALS DESKTOP (END) */
+
+/* ABOUT (START) */
+.about-section-container {
+    height: 743px;
+    background-color: var(--gray);
+    padding: 40px;
+}
+
+.about-content-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,minmax(auto,495px));
+    gap: 30px;
+}
+
+.content {
+    background-color: var(--darkgreen);
+    width: 100%;
+    max-width: 445px;
+    height: 464px;
+    border-radius: 8px;
+    padding: 27px;
+}
+
+.content h2 {
+    color: var(--yellow);
+    font-family: 'Markazi Text', serif;
+    font-size: 64px;
+    font-weight: 700;
+}
+
+.content h3 {
+    color: var(--white);
+    font-family: Karla;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.content p {
+    color: var(--white);
+    font-family: 'Karla', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-top: 27px;
+}
+
+.images {
+    position: relative;
+}
+
+.team-image {
+    background: url(./images/Mario\ and\ Adrian\ A.jpg) center center/cover;
+    width: 261px;
+    height: 310px;
+    border-radius: 8px;
+    position: absolute;
+    right: 10px
+}
+
+.solo-image {
+    background: url(./images/restaurant\ chef\ B.jpg) center center/cover;
+    width: 261px;
+    height: 310px;
+    border-radius: 8px;
+    position: absolute;
+    right: 200px;
+    top: 7px;
+}
+/* ABOUT (END) */
+
+/* FOOTER DESKTOP (START) */
+.footer-section-container {
+    padding: 40px;
+}
+
+.footer-content-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(auto,300px));
+    justify-items:center;
+    justify-content: center;
+    align-items:start;
+    padding-top: 100px;
+    padding-bottom: 50px;
 }
 
 .footer-content h2 {
@@ -161,3 +546,195 @@ font-size: 20px;
 }
 /* FOOTER DESKTOP (END) */
 
+/* ___________________________________________________ */
+/* MAX WIDTH 1045px CSS */
+/* ___________________________________________________ */
+
+@media screen and (max-width: 1045px) {
+    /* Nav Section (Start) */
+    .nav-content-container {
+        grid-template-columns: repeat(1, auto);
+       }
+    /* Nav Section (Start) */
+
+    /* Specials Section (Start) */
+    .specials-card-container {
+        grid-template-columns: repeat(2, minmax(auto,300px));
+    }
+
+    .specials-card-container {
+        height: 100%;
+    }
+
+    .specials-content {
+        max-width: 600px;
+        margin-bottom: 20px;
+    }
+    /* Specials Section (End) */
+
+    /* About Section (Start) */
+    .about-section-container {
+        height: 100%;
+    }
+
+    .about-content-container {
+        grid-template-columns: repeat(1,minmax(auto,495px));
+        grid-template-rows: repeat(2,minmax(auto,495px));
+        gap: 0;
+    }
+
+    .team-image,.solo-image {
+        transform:translateY(-70px);
+    }
+    /* About Section (End) */
+
+    /* Testimonials Section (Start) */
+    .testimonials-card-container {
+        grid-template-columns: repeat(2,minmax(auto, 235px));
+
+    }
+
+    .testimonials-section-container {
+        height: 100%
+    }
+    /* Testimonials Section (End) */
+}
+
+/* ___________________________________________________ */
+/* MAX WIDTH 800px CSS */
+/* ___________________________________________________ */
+
+@media screen and (max-width: 800px) {
+
+    /* Nav Section (Start) */
+    .nav-content-container {
+        display: none;
+    }
+
+    .menu-background {
+        background-color: var(--white);
+        height: 100px;
+        width: 100vw;
+    }
+
+    .menu-wrap {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+
+      .menu-wrap .toggler {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        opacity: 0;
+      }
+
+      .menu-wrap .hamburger {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        background: var(--white);
+        width: 60px;
+        height: 60px;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .menu-wrap .hamburger > div {
+        background: var(--black);
+        width: 100%;
+        height: 2px;
+        position: relative;
+        transition: all 0.4s ease;
+      }
+
+      .menu-wrap .hamburger > div:before,
+      .menu-wrap .hamburger > div:after {
+        content: '';
+        background: var(--black);
+        width: 100%;
+        height: 2px;
+        position: absolute;
+      }
+
+      .menu-wrap .hamburger > div:before {
+        top: -10px;
+      }
+
+      .menu-wrap .hamburger > div:after {
+        top: 10px;
+      }
+
+      .menu-wrap .toggler:checked + .hamburger > div {
+        transform: rotate(135deg);
+      }
+
+      .menu-wrap .toggler:checked + .hamburger > div:before,
+      .menu-wrap .toggler:checked + .hamburger > div:after {
+        top: 0;
+        transform: rotate(90deg);
+      }
+
+      .menu {
+        background: var(--white);
+        height: 0vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: translateX(-1000px);
+        transition: all 0.5s ease;
+       }
+
+       .menu-wrap .toggler:checked ~ .menu {
+        opacity: 1;
+        height: 100vh;
+        transform: translateX(0);
+       }
+
+       .menu ul li {
+        margin: 20px 0 20px 0;
+        transform: translateY(-100px);
+       }
+       .menu ul li a {
+        color: var(--black);
+        font-family: 'Karla', sans-serif;
+        font-size: 30px;
+        font-weight: 600;
+       }
+
+
+    /* Nav Section (End) */
+
+    /* Footer Section (Start) */
+    .footer-content-container {
+        grid-template-columns: repeat(1, minmax(auto,300px));
+        
+    }
+
+    .footer-content {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .footer-content h2 {
+        width: 100%;
+    }
+
+    .footer-logo-container{
+        margin-bottom: 40px;
+    }
+    /* Footer Section (End) */
+
+}
