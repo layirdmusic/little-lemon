@@ -19,7 +19,7 @@ export default function Home() {
     return (
         <>
         <div>
-            <h2>{browserWidth}</h2>
+            <h2 className="bwidth">{browserWidth}</h2>
         </div>
         <Nav />
         <Header />

@@ -1,3 +1,8 @@
+.bwidth {
+    position: absolute;
+    z-index: 100;
+}
+
 /* ___________________________________________________ */
 /* DEFAULTS & UTLITIES */
 /* ___________________________________________________ */
@@ -449,7 +454,7 @@ header {
 
 .content {
     background-color: var(--darkgreen);
-    width: 100%;
+    /* width: 100%; */
     max-width: 445px;
     height: 464px;
     border-radius: 8px;
@@ -720,7 +725,7 @@ font-size: 20px;
     /* Footer Section (Start) */
     .footer-content-container {
         grid-template-columns: repeat(1, minmax(auto,300px));
-        
+
     }
 
     .footer-content {
@@ -736,5 +741,74 @@ font-size: 20px;
         margin-bottom: 40px;
     }
     /* Footer Section (End) */
+
+}
+
+/* ___________________________________________________ */
+/* MAX WIDTH 700px CSS */
+/* ___________________________________________________ */
+
+@media screen and (max-width: 700px) {
+
+    /* Header Section (Starts) */
+    .header-section-container {
+        height: 800px;
+    }
+
+    .header-content {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        margin-bottom: 40px;
+    }
+
+    .header-content-container {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+    }
+    /* Header Section (Ends) */
+}
+
+/* ___________________________________________________ */
+/* MAX WIDTH 500px CSS */
+/* ___________________________________________________ */
+
+@media screen and (max-width: 500px) {
+
+    .specials-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .specials-content h2 {
+        margin-bottom: 40px;
+    }
+
+    .specials-card-container {
+        grid-template-columns: repeat(1, minmax(auto,300px));
+    }
+
+    .testimonials-card-container {
+        grid-template-columns: repeat(1,minmax(auto, 300px));
+    }
+
+    .testimonials-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .testimonials-card p {
+        width: auto;
+    }
 
 }
