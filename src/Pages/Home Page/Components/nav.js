@@ -4,7 +4,7 @@ import "../../../App.css"
 
 
 export default function Nav() {
-    
+
     return (
         <nav className="nav-section-container flex-row-center">
 
@@ -16,27 +16,27 @@ export default function Nav() {
                 <div className="menu-links-container">
                     <ul className="flex-row-center">
                         <li className='flex-column-center'>
-                            <a href="google.com">HOME</a>
+                            <a href="/">HOME</a>
                             <div className='nav-underline'></div>
                         </li>
                         <li className='flex-column-center'>
-                            <a href="google.com">ABOUT</a>
+                            <a href="/">ABOUT</a>
                             <div className='nav-underline'></div>
                         </li>
                         <li className='flex-column-center'>
-                            <a href="google.com">MENU</a>
+                            <a href="/">MENU</a>
                             <div className='nav-underline'></div>
                         </li>
                         <li className='flex-column-center'>
-                            <a href="google.com">RESERVATIONS</a>
+                            <a href="/booking">RESERVATIONS</a>
                             <div className='nav-underline'></div>
                         </li>
                         <li className='flex-column-center'>
-                            <a href="google.com">ORDER ONLINE</a>
+                            <a href="/">ORDER ONLINE</a>
                             <div className='nav-underline'></div>
                         </li>
                         <li className='flex-column-center'>
-                            <a href="google.com">LOGIN</a>
+                            <a href="/">LOGIN</a>
                             <div className='nav-underline'></div>
                         </li>
                     </ul>
@@ -44,17 +44,17 @@ export default function Nav() {
             </section>
 
             {/* The Mobile Version Navigation */}
-            <section class="menu-wrap">
+            <section className="menu-wrap">
                 <div className='menu-background flex-column-center'>
                     <img src={logo} alt="little Lemon Logo" className="nav-logo" />
                 </div>
                 {/* <!-- Checkbox (toggler) --> */}
-                <input type="checkbox" class="toggler"/>
+                <input type="checkbox" className="toggler"/>
                 {/* <!-- Hamburger Lines --> */}
-                <div class="hamburger">
+                <div className="hamburger">
                     <div></div>
                 </div>
-                <div class="menu">
+                <div className="menu">
                     <div>
                         <div className="menu-links-container">
                             <ul className="flex-column-left">

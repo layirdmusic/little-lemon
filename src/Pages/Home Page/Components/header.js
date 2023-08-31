@@ -8,7 +8,7 @@ export default function Header() {
                     <h1>Little Lemon</h1>
                     <h3>Chicago</h3>
                     <p>ac turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie at elementum eu facilisis sed odio morbi quis commodo odio aenean sed adipiscing diam donec adipiscing tristique risus nec</p>
-                    <a>Reserve A Table</a>
+                    <a href="/booking">Reserve A Table</a>
                 </div>
                 <div className="header-image-container flex-column-center">
                     <div className="header-img"></div>
