@@ -9,9 +9,9 @@
 
 
 /* DEFAULTS (START) */
-/* img {
+img {
     height: 200px
-} */
+}
 
 a {
     text-decoration: none;
@@ -672,17 +672,15 @@ font-size: 20px;
 
 .slider-container {
     background-color: var(--darkgreen);
-    height: 100%;
-    padding: 15px 15px 15px 15px;
+    height: 74vh;
+    padding: 0 15px 0 15px;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     }
 
 .slider {
     display: grid;
     grid-template-columns: repeat(3,100%);
+    
     opacity: 1;
     transition: transform 0.5s ease-in-out;
 }
@@ -708,12 +706,15 @@ font-size: 20px;
 .slideThree {
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
-
+    
 }
 
 .slideHidden {
     opacity: 0;
 }
+
+
+
 
 .booking-content-container {
     display: grid;
@@ -725,8 +726,7 @@ font-size: 20px;
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.calender-section-container > h2,
-.calender-section-container > p {
+.calender-section-container .section-title{
     color: var(--white);
 }
 .page-buttons-container{
@@ -837,8 +837,7 @@ font-size: 20px;
     max-width: 500px;
 }
 
-.timeguest-section-container > h2,
-.timeguest-section-container > p {
+.timeguest-section-container > h2{
     color: var(--white);
 }
 
@@ -1112,7 +1111,7 @@ font-size: 20px;
 
 .wheelchairguests-title-container {
     color: var(--white);
-    margin-top: 80px;
+    margin-top: 40px;
     width: 100%;
     max-width: 500px;
 }
@@ -1175,6 +1174,32 @@ font-size: 20px;
     width: 100%;
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
+
+/* .transition-right {
+    display: none;
+    position: absolute;
+    opacity: 0;
+    transform: translateX(2000px);
+
+}
+
+.transition-center {
+    opacity: 1;
+    transform: translateX(0px);
+
+}
+
+.transition-left {
+    display: none;
+    position: absolute;
+    opacity: 0;
+    transform: translateX(-2000px);
+
+} */
+
+/* .slide-visable {
+
+} */
 
 .slide-invisable {
     display: none;
@@ -1251,7 +1276,13 @@ font-size: 20px;
     width: 50%;
     background-color: var(--gray);
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+}
+
+.seating-image {
+    height: 150px;
+    max-width: 700px;
+    border-radius: 8px;
 }
 
 .interior-seats {
@@ -1275,130 +1306,15 @@ font-size: 20px;
     margin-bottom: 10px;
 }
 
-
-/* CONFIRM DETAILS SECTION (END) */
-
-
-/* RESERVATION CONFIRMATION SLIDE (STARTS) */
-
-/* Reservation Confirmation Slide Grid */
-.reservation-confirmation-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(auto,500px));
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    height: 80vh;
-}
-
-/* Booking Overview Grid Cell */
-.booking-overview {
-    height: 100%;
-    width: 100%;
-    background-color: var(--black);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 30px;
-    box-sizing: border-box;
-    align-items: flex-start;
-    color: var(--white);
-    border-radius: 8px 0 0 8px;
-}
-
-.booking-detail {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.booking-detail img{
-    height: 10px;
-    width: 10px;
-    margin-right: 10px;
-}
-
-.booking-detail h3 {
-    font-weight: 500;
-}
-
-.booking-detail span {
-    font-weight: 400;
-    color: var(--yellow);
-}
-
-.seating-image {
-    height: 200px;
-    width: 100%;
-    border-radius: 8px;
-    background-image: url(./images/interior-seats.jpg);
-}
-
-
-/* Contact Details Grid Cell */
-.contact-details {
-    height: 100%;
-    width: 100%;
-    background-color: var(--white);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 30px;
-    box-sizing: border-box;
-    align-items: flex-start;
-    color: var(--darkgreen);
-    border-radius: 0 8px 8px 0;
-}
-
-.contact-details .reservation-line {
-    background-color: var(--darkgreen);
-}
-
-.contact-details form {
-   display: flex;
-   flex-direction: column;
-   align-items: flex-start;
-   width: 100%;
-
-}
-
-.contact-details form input {
-   width: 100%;
-   height: 40px;
-   border-radius: 8px;
-   border: 1px solid var(--darkgreen);
-   margin-top: 10px;
-   padding-left: 10px;
-   font-family: 'Karla', sans-serif;
-   box-sizing: border-box;
-}
-
-.contact-details form textarea {
-   width: 100%;
-   height: 80px;
-   border-radius: 8px;
-   border: 1px solid var(--darkgreen);
-   margin-top: 10px;
-   padding-left: 10px;
-   font-family: 'Karla', sans-serif;
-   box-sizing: border-box;
-}
-
-
 .inValidMessage {
     display: none;
     color: var(--white);
     background-color: var(--red);
     margin-top: 5px;
-    margin-bottom: 5px;
-    width: 100%;
-    padding-left: 10px;
-    height: 35px;
+    padding: 5px 0 5px 20px;
     box-sizing: border-box;
     border-radius: 8px;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 
@@ -1413,8 +1329,7 @@ font-size: 20px;
 .showInvalidMessage {
     display: flex;
 }
-
-/* RESERVATION CONFIRMATION SLIDE (ENDS)
+/* CONFIRM DETAILS SECTION (END) */
 
 
 /* ___________________________________________________ */
@@ -1662,6 +1577,8 @@ font-size: 20px;
 
     /* Reservations Form (Start) */
 
+   
+
     .booking-content-container {
         display: grid;
         grid-template-columns: 1fr;
@@ -1676,6 +1593,19 @@ font-size: 20px;
         padding: 30px 30px 30px 30px;
     }
 
+    .bar-section-container {
+        transform: translateY(60px);
+    }
+
+
+    /* .confirm-details-container {
+        grid-template-columns: 1fr;
+        row-gap: 80px;
+        grid-template-areas:
+            "item2"
+            "item1";
+    } */
+
     .timeguest-section-container > h2 {
         margin-top: 40px;
     }
@@ -1688,8 +1618,15 @@ font-size: 20px;
     }
 
     .title-container h2 {
-        margin-top: 80px;
+        margin-top: 40px;
     }
+
+    /* .overview-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    } */
 
     .occasion-title-container{
         display: flex;
@@ -1722,6 +1659,15 @@ font-size: 20px;
         margin-top: 50px;
     }
 
+    /* .item1{
+        grid-area: item1;
+    }
+
+    .item2{
+        grid-area: item2;
+    } */
+
+
     .reservation-overview-container {
         width: 100%;
         height: 1500px;
@@ -1730,7 +1676,7 @@ font-size: 20px;
     
     .slider-container {
         background-color: var(--darkgreen);
-        padding: 30px;
+        padding: 0 15px 0 15px;
         overflow: hidden;
         height: 100%;
         }
@@ -1753,69 +1699,6 @@ font-size: 20px;
     }
 
     /* Reservations Form (End) */
-
-
-
-/* RESERVATION CONFIRMATION SLIDE (STARTS) */
-
-/* Reservation Confirmation Slide Grid */
-.reservation-confirmation-grid {
-    display: grid;
-    grid-template-columns: repeat(1, minmax(auto,500px));
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    height: 100%;
-}
-
-.increase-slide-size {
-    height: 74vh
-}
-
-/* Booking Overview Grid Cell */
-.booking-overview {
-    height: 100%;
-    width: 100%;
-    background-color: var(--black);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px 8px 0 0;
-}
-
-.booking-detail {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.booking-detail img{
-   display: none;
-}
-
-.booking-detail h3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Contact Details Grid Cell */
-.contact-details {
-    height: 100%;
-    width: 100%;
-    background-color: var(--white);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0 0 8px 8px;
-}
-
-/* RESERVATION CONFIRMATION SLIDE (ENDS) */
-
 
 }
 
@@ -1855,7 +1738,6 @@ font-size: 20px;
     .testimonials-card p {
         width: auto;
     }
-
 
 
 }

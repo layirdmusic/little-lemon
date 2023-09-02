@@ -7,10 +7,8 @@ import Occasion from "./Occasion";
 import WheelChairGuests from "./wheelchairguests";
 import TableArea from "./tablearea";
 import CheckSemiCircleSmall from "../../Icons/check-semi-circle-small";
-import SmallCircle from "../../../images/dot-icon.svg"
+import SmallCircle from "../../Icons/small-circle";
 import WarningIcon from "../../Icons/warning-icon";
-import { render, fireEvent, screen } from "@testing-library/react";
-
 
 
 export  default function BookingForm (props) {
@@ -49,7 +47,7 @@ export  default function BookingForm (props) {
     const handleFirstNameTouched = () => {
         setFirstNameTouched(true)
     }
-   
+
     const handleFirstNameUntouched = () => {
         setFirstNameUntouched(true)
     }
@@ -65,7 +63,7 @@ export  default function BookingForm (props) {
     const handleEmailTouched = () => {
         setEmailTouched(true)
     }
-    
+
     const handleEmailUntouched = () => {
         setEmailUntouched(true)
     }
@@ -73,7 +71,7 @@ export  default function BookingForm (props) {
     const handlePhoneTouched = () => {
         setPhoneTouched(true)
     }
-    
+
     const handlePhoneUntouched = () => {
         setPhoneUntouched(true)
     }
@@ -189,7 +187,7 @@ export  default function BookingForm (props) {
             setStageCount(stageCount + 1)
         }
 
-        window.scrollTo({top: 0})
+        console.log(stageCount)
     }
 
     const prevStage = () => {
@@ -198,8 +196,6 @@ export  default function BookingForm (props) {
         } else {
             setStageCount(stageCount - 1)
         }
-
-        window.scrollTo({top: 0})
     }
 
     useEffect(() => {
@@ -207,7 +203,7 @@ export  default function BookingForm (props) {
         props.onStageCountChange(stageCount)
     },[stageCount])
 
-    
+
 
 
 
@@ -222,17 +218,15 @@ export  default function BookingForm (props) {
         return (
                 <div className={`booking-content-container`}>
                     <div className="calender-section-container flex-column-center">
-                        <h2>RESERVE DATE</h2>
-                        <p>Choose Your Desired Date</p>
+                        <h2 className="section-title">SELECT YOUR DATE</h2>
                         <div className="reservation-line"></div>
                         <Calender onDateChange={handleReserveDateChange}/>
                     </div>
                     <div className="timeguest-section-container flex-column-top-center">
-                        <h2>RESERVE TIME</h2>
-                        <p>Choose Your Desired Time</p>
+                        <h2 className="section-title">SELECT TIME & GUESTS</h2>
                         <div className="reservation-line"></div>
                         <TimeAndDate onTimeChange={handleReserveTimeChange} onGuestChange={handleGuestChange}/>
-                        <button aria-disabled={pageOneBtnDisabled} onClick={() => nextStage()} disabled={pageOneBtnDisabled} className="page-button next-color flex-row-center">
+                        <button onClick={() => nextStage()} disabled={pageOneBtnDisabled} className="page-button next-color flex-row-center">
                             <h2>Next</h2>
                             <img src={RightArrow} alt="Next Page Icon" />
                         </button>
@@ -259,7 +253,7 @@ export  default function BookingForm (props) {
                     <div className="options-section-container flex-column-center">
                         <TableArea onTableChange={handleTableAreaChange}/>
                         <div className="page-buttons-container flex-column-center">
-                            <button aria-disabled={pageTwoBtnDisabled} onClick={() => nextStage()} disabled={pageTwoBtnDisabled} className="page-button next-color flex-row-center">
+                            <button onClick={() => nextStage()} disabled={pageTwoBtnDisabled} className="page-button next-color flex-row-center">
                                     <h2>Next</h2>
                                     <img src={RightArrow} alt="Next Page Icon" />
                             </button>
@@ -278,72 +272,56 @@ export  default function BookingForm (props) {
     function third (){
 
         return (
-            <div className="reservation-confirmation-grid">
-                <div className="booking-overview">
-                    <h2>LITTLE LEMON</h2>
-                    <p>RESERVATION OVERVIEW</p>
-                    <div className="reservation-line"></div>
-                    <ul>
-                        <li className="booking-detail">
-                            
-                            <h3>
-                                <img src={SmallCircle} alt=""/>
-                                Date :
-                                <span> {reserveDate}</span>
-                            </h3>
-                        </li>
-                        <li className="booking-detail">
-                            <h3>
-                                <img src={SmallCircle} alt=""/>
-                                Time :
-                                <span> {reserveTime}</span>
-                            </h3>
-                        </li>
-                        <li className="booking-detail">
-                            <h3>
-                                <img src={SmallCircle} alt=""/>
-                                Occassion :
-                                <span> {reserveOccasion}</span>
-                            </h3>
-                        </li>
-                        <li className="booking-detail">
-                            <h3>
-                                <img src={SmallCircle} alt=""/>
-                                Seating Area :
-                                <span> {reserveTableArea}
-                                </span>
-                            </h3>
-                        </li>
-                        <li className="booking-detail">
-                            <h3>
-                                <img src={SmallCircle} alt=""/>
-                                Standard Seating :
-                                <span> {standardMinusWheelChair + " Guest(s)"}</span>
-                            </h3>
-                        </li>
-                        <li className="booking-detail">
-                            <h3>
-                                <img src={SmallCircle} alt=""/>
-                                Wheelchair Seating :
-                                <span> {wheelChairGuestCount + " Guest(s)"}</span>
-                            </h3>
-                        </li>
-                        <li className="booking-detail">
-                            <h3>
-                                <img src={SmallCircle} alt=""/>
-                                Location :
-                                <span> 7110 W. Valley Farms Street</span>
-                            </h3>
-                        </li>
-                    </ul>
-                    <div className="reservation-line"></div>
-                    <div className="seating-image interior-seats"></div>
-                </div>
-                <div className="contact-details">
-                    <h2>DETAILS</h2>
-                    <p>Enter Your Contact Info</p>
-                    <div className="reservation-line"></div>
-                    <form onSubmit={handleSubmit} >
+            <div className={`reservation-overview-container flex-column-center`}>
+                <div className="booking-content-container">
+                <div className="reservation-overview flex-column-center">
+                        <div className="overview-container">
+                            <div className="title-container">
+                                <h2>LITTLE LEMON</h2>
+                                <p>RESERVATION OVERVIEW</p>
+                            </div>
+                            <div className="reservation-line"></div>
+                            <ul>
+                                <li className="flex-row-left">
+                                    <SmallCircle />
+                                    <h3>Date : <span>{reserveDate}</span></h3>
+                                </li>
+                                <li className="flex-row-left">
+                                    <SmallCircle />
+                                    <h3>Time : <span>{reserveTime}</span></h3>
+                                </li>
+                                <li className="flex-row-left">
+                                    <SmallCircle />
+                                    <h3>Occassion : <span>{reserveOccasion}</span></h3>
+                                </li>
+                                <li className="flex-row-left">
+                                    <SmallCircle />
+                                    <h3>Seating Area : <span>{reserveTableArea}</span></h3>
+                                </li>
+                                <li className="flex-row-left">
+                                    <SmallCircle />
+                                    <h3>Standard Seating : <span>{standardMinusWheelChair + " Guest(s)"}</span></h3>
+                                </li>
+                                <li className="flex-row-left">
+                                    <SmallCircle />
+                                    <h3>Wheelchair Seating : <span>{wheelChairGuestCount + " Guest(s)"}</span></h3>
+                                </li>
+                                <li className="flex-row-left">
+                                    <SmallCircle />
+                                    <h3>Location : <span> 7110 W. Valley Farms Street</span></h3>
+                                </li>
+                            </ul>
+                            <div className="reservation-line"></div>
+                            <div className="seating-image interior-seats"></div>
+                        </div>
+                    </div>
+                    <div className="details-form-container flex-column-center">
+                        <div className="details-title-container">
+                            <h2>DETAILS</h2>
+                             <p>Enter Your Contact Info</p>
+                             <div className="reservation-line"></div>
+                        </div>
+                        <form onSubmit={handleSubmit} >
                             <input onChange={changeFirstName} onFocus={handleFirstNameTouched} onBlur={handleFirstNameUntouched} type="text" className="confirm-form-inputs" name="first-name" id="confirm-first-name" placeholder="First Name" autoComplete="on" required value={firstName}/>
 
                             <div className={`inValidMessage flex-row-left ${!firstNameValid && firstNameTouched && firstNameUntouched ? "showInvalidMessage" : ""}`}>
@@ -355,14 +333,14 @@ export  default function BookingForm (props) {
 
                             <div className={`inValidMessage flex-row-left ${!lastNameValid && lastNameTouched && lastNameUntouched ? "showInvalidMessage" : ""}`}>
                                 <WarningIcon />
-                                <p>Please enter your last name</p>
+                                <p>Please enter your first name</p>
                             </div>
 
                             <input onChange={changeEmail} onFocus={handleEmailTouched} onBlur={handleEmailUntouched} type="email" className="confirm-form-inputs" name="email" id="confirm-email" placeholder="Email" autoComplete="on" required value={email} />
 
                             <div className={`inValidMessage flex-row-left ${!emailValid && emailTouched && emailUntouched ? "showInvalidMessage" : ""}`}>
                                 <WarningIcon />
-                                <p>Please enter your email</p>
+                                <p>Please enter your first name</p>
                             </div>
 
                             <input onChange={changePhone} onFocus={handlePhoneTouched} onBlur={handlePhoneUntouched} type="tel" className="confirm-form-inputs" name="phone-number" id="confirm-phone-number" placeholder="Phone Number  (Format: 123-456-7890)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required value={phone}></input>
@@ -379,15 +357,19 @@ export  default function BookingForm (props) {
 
                             <textarea onChange={changeSpecialRequest} className="confirm-form-textarea" name="special-requests" id="confirm-special-requests" placeholder="Special Requests" value={specialRequest}></textarea>
 
-                            <button aria-disabled={disabledState} disabled={disabledState} type="submit" className="page-button next-color flex-row-center">
+                            <button disabled={disabledState} type="submit" className="page-button next-color flex-row-center">
                                     <CheckSemiCircleSmall />
                                     <h2>Confirm</h2>
                             </button>
+
                         </form>
-                        <button onClick={() => prevStage()} className="page-button prev-color flex-row-center">
+                        <div className="confirm-page-buttons-container flex-column-center">
+                            <button onClick={() => prevStage()} className="page-button prev-color flex-row-center">
                                     <img src={LeftArrowWhite} alt="Next Page Icon" />
                                     <h2>Go Back</h2>
-                        </button>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         )
@@ -396,7 +378,7 @@ export  default function BookingForm (props) {
 
     return (
         <section>
-            <div className="slider-container">
+            <div className="slider-container flex-column-center">
                 <div className={`slider ${stageCount === 1 ? "nextSlideOne" : ""} ${stageCount === 2 ? "nextSlideTwo" : ""}`}>
                     <div className={`slideOne flex-column-center ${stageCount === 0 ? "" : "slideHidden"}`}>
                         {first()}
@@ -404,7 +386,7 @@ export  default function BookingForm (props) {
                     <div className={`slideTwo flex-column-center ${stageCount === 1 ? "" : "slideHidden"}`}>
                         {second()}
                     </div>
-                    <div className={`slideThree  flex-column-center ${stageCount === 2 ? "" : "slideHidden"} ${stageCount === 2 ? "" : "increase-slide-size"}`}>
+                    <div className={`slideThree ${stageCount === 2 ? "" : "slideInVisable"} flex-column-center ${stageCount === 2 ? "" : "slideHidden"}`}>
                         {third()}
                     </div>
                 </div>

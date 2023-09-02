@@ -27,6 +27,7 @@ export default function ProgressBar(props) {
 
     return(
         <section className="bar-section-container flex-column-center">
+            
             <div className="bar-bubble-container">
                 <div className={`bar-bubble ${props.value === 0 ? "active-bubble": ""}`}>
                     <CalendarIcon />

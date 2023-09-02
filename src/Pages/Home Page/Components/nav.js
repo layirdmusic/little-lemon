@@ -59,27 +59,27 @@ export default function Nav() {
                         <div className="menu-links-container">
                             <ul className="flex-column-left">
                                 <li className='flex-column-center'>
-                                    <a href="google.com">HOME</a>
+                                    <a href="/">HOME</a>
                                     <div className='nav-underline'></div>
                                 </li>
                                 <li className='flex-column-center'>
-                                    <a href="google.com">ABOUT</a>
+                                    <a href="/">ABOUT</a>
                                     <div className='nav-underline'></div>
                                 </li>
                                 <li className='flex-column-center'>
-                                    <a href="google.com">MENU</a>
+                                    <a href="/">MENU</a>
                                     <div className='nav-underline'></div>
                                 </li>
                                 <li className='flex-column-center'>
-                                    <a href="google.com">RESERVATIONS</a>
+                                    <a href="/booking">RESERVATIONS</a>
                                     <div className='nav-underline'></div>
                                 </li>
                                 <li className='flex-column-center'>
-                                    <a href="google.com">ORDER ONLINE</a>
+                                    <a href="/">ORDER ONLINE</a>
                                     <div className='nav-underline'></div>
                                 </li>
                                 <li className='flex-column-center'>
-                                    <a href="google.com">LOGIN</a>
+                                    <a href="/">LOGIN</a>
                                     <div className='nav-underline'></div>
                                 </li>
                             </ul>

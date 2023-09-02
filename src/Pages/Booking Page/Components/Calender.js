@@ -11,11 +11,14 @@ export default function Calender(props) {
     const weekNames = ["Monday", "Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
     const [month,setMonth] = useState(monthNamesShort[currentMonth])
     const [year, setYear] = useState(currentYear)
+    const [clicked, setClicked] = useState(null)
+
 
 
 
     function nextMonth() {
         setCurrentMonth(currentMonth + 1)
+        setClicked(null)
         if(currentMonth > 10) {
             setCurrentMonth(0)
             setYear(year + 1)
@@ -24,6 +27,7 @@ export default function Calender(props) {
 
     function prevMonth() {
         setCurrentMonth(currentMonth - 1)
+        setClicked(null)
         if(currentMonth < 1) {
             setCurrentMonth(11)
             setYear(year - 1)
@@ -33,8 +37,6 @@ export default function Calender(props) {
     useEffect(() => {
         setMonth(monthNamesShort[currentMonth]);
     },[currentMonth])
-
-        const [clicked, setClicked] = useState(null)
 
     const selectedDate = (i) => {
         setClicked(i)
