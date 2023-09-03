@@ -45,10 +45,12 @@ export default function Calender(props) {
 
     useEffect(() => {
        const clickedDate = new Date (year, currentMonth, clicked)
+       const formattedDate = clickedDate.toISOString().split("T")[0]
        const dayOfWeek = clickedDate.getDay()
        const selectedDay = weekNames[dayOfWeek]
        const selectedMonth = monthNamesLong[currentMonth]
        props.onDateChange(`${selectedDay}, ${selectedMonth} ${clicked}`)
+       props.onSelectedDate(`${formattedDate}`)
     },[clicked])
 
     const date = new Date(year,currentMonth,1)

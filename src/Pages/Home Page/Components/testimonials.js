@@ -16,7 +16,7 @@ export default function Testimonials() {
                         <img src={Star} alt="Star Rating" />
                     </div>
                     <div className="profile-container flex-row-left">
-                        <div className="profile-img-joseph"></div>
+                        <div className="profile-img-gabriel"></div>
                         <div className="profile-name">Joseph</div>
                     </div>
                     <div className="testimonial-container flex-row-top-spread">
@@ -50,7 +50,7 @@ export default function Testimonials() {
                         <img src={Star} alt="Star Rating" />
                     </div>
                     <div className="profile-container flex-row-left">
-                        <div className="profile-img-joseph"></div>
+                        <div className="profile-img-armin"></div>
                         <div className="profile-name">Joseph</div>
                     </div>
                     <div className="testimonial-container flex-row-top-spread">
@@ -67,7 +67,7 @@ export default function Testimonials() {
                         <img src={Star} alt="Star Rating" />
                     </div>
                     <div className="profile-container flex-row-left">
-                        <div className="profile-img-joseph"></div>
+                        <div className="profile-img-austin"></div>
                         <div className="profile-name">Joseph</div>
                     </div>
                     <div className="testimonial-container flex-row-top-spread">

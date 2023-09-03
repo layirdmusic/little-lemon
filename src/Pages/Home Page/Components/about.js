@@ -10,7 +10,7 @@ export default function About() {
                     <p>ultricies integer quis auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin</p>
                     <p>libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo</p>
                 </div>
-                <div className="images flex-column-center">
+                <div className="images">
                     <div className="team-image"></div>
                     <div className="solo-image"></div>
                 </div>

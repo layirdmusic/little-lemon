@@ -4,7 +4,7 @@ import ProgressBar from "./Components/progressbar"
 import BookingForm from "./Components/bookingform"
 
 
-export default function BookingPage(){
+export default function BookingPage(props){
     const [bubbleState, setBubbleState] = useState(0)
 
     const handleBubbleChange = (state) => {
@@ -12,7 +12,7 @@ export default function BookingPage(){
     }
 
     useEffect(() => {
-        setBubbleState(bubbleState)
+        console.log(bubbleState)
     },[bubbleState])
 
 

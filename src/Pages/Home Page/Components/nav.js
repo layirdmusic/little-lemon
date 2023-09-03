@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import logo from "../../../images/Logo.svg"
 import "../../../App.css"
+import { useLocation } from 'react-router-dom';
 
 
 export default function Nav() {
-
+    
+    const location = useLocation()
     return (
         <nav className="nav-section-container flex-row-center">
 
@@ -16,28 +18,28 @@ export default function Nav() {
                 <div className="menu-links-container">
                     <ul className="flex-row-center">
                         <li className='flex-column-center'>
-                            <a href="/">HOME</a>
-                            <div className='nav-underline'></div>
+                            <a className={`${location.pathname === "/" ? "active-page" : "nav-title"} `} href="/">HOME</a>
+                            <div className={`nav-underline ${location.pathname === "/" ? "active-line" : ""}`}></div>
                         </li>
                         <li className='flex-column-center'>
-                            <a href="/">ABOUT</a>
-                            <div className='nav-underline'></div>
+                            <a className={`nav-title`} href="/">ABOUT</a>
+                            <div className={`nav-underline`}></div>
                         </li>
                         <li className='flex-column-center'>
-                            <a href="/">MENU</a>
-                            <div className='nav-underline'></div>
+                            <a className={`nav-title`} href="/">MENU</a>
+                            <div className={`nav-underline`}></div>
                         </li>
                         <li className='flex-column-center'>
-                            <a href="/booking">RESERVATIONS</a>
-                            <div className='nav-underline'></div>
+                            <a className={`nav-title ${location.pathname === "/booking" ? "active-page" : ""}`} href="/booking">RESERVATIONS</a>
+                            <div className={`nav-underline ${location.pathname === "/booking" ? "active-line" : ""}`}></div>
                         </li>
                         <li className='flex-column-center'>
-                            <a href="/">ORDER ONLINE</a>
-                            <div className='nav-underline'></div>
+                            <a className={`nav-title`} href="/">ORDER ONLINE</a>
+                            <div className={`nav-underline`}></div>
                         </li>
                         <li className='flex-column-center'>
-                            <a href="/">LOGIN</a>
-                            <div className='nav-underline'></div>
+                            <a className={`nav-title`} href="/">LOGIN</a>
+                            <div className={`nav-underline`}></div>
                         </li>
                     </ul>
                 </div>
@@ -59,28 +61,28 @@ export default function Nav() {
                         <div className="menu-links-container">
                             <ul className="flex-column-left">
                                 <li className='flex-column-center'>
-                                    <a href="/">HOME</a>
-                                    <div className='nav-underline'></div>
+                                <a className={`${location.pathname === "/" ? "active-page" : "nav-title"} `} href="/">HOME</a>
+                                <div className={`nav-underline ${location.pathname === "/" ? "active-line" : ""}`}></div>
                                 </li>
                                 <li className='flex-column-center'>
-                                    <a href="/">ABOUT</a>
-                                    <div className='nav-underline'></div>
+                                    <a className={`nav-title`} href="/">ABOUT</a>
+                                    <div className={`nav-underline`}></div>
                                 </li>
                                 <li className='flex-column-center'>
-                                    <a href="/">MENU</a>
-                                    <div className='nav-underline'></div>
+                                    <a className={`nav-title`} href="/">MENU</a>
+                                    <div className={`nav-underline`}></div>
                                 </li>
                                 <li className='flex-column-center'>
-                                    <a href="/booking">RESERVATIONS</a>
-                                    <div className='nav-underline'></div>
+                                    <a className={`nav-title ${location.pathname === "/booking" ? "active-page" : ""}`} href="/booking">RESERVATIONS</a>
+                                    <div className={`nav-underline ${location.pathname === "/booking" ? "active-line" : ""}`}></div>
                                 </li>
                                 <li className='flex-column-center'>
-                                    <a href="/">ORDER ONLINE</a>
-                                    <div className='nav-underline'></div>
+                                    <a className={`nav-title`} href="/">ORDER ONLINE</a>
+                                    <div className={`nav-underline`}></div>
                                 </li>
                                 <li className='flex-column-center'>
-                                    <a href="/">LOGIN</a>
-                                    <div className='nav-underline'></div>
+                                    <a className={`nav-title`} href="/">LOGIN</a>
+                                    <div className={`nav-underline`}></div>
                                 </li>
                             </ul>
                     </div>

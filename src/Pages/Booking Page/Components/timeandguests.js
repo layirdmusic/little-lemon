@@ -2,32 +2,45 @@ import React, { useEffect, useState } from "react"
 import Clock from "../../../images/clock-icon.svg"
 import Plus from "../../../images/plus-icon.svg"
 import Minus from "../../../images/minus-icon.svg"
-
+import { fetchAPI } from "../../../TimesApi"
+import { submitAPI } from "../../../TimesApi"
 
 export default function TimeAndDate(props) {
 
-    const timeSlots = []
+    const [timeSlots, setTimeSlots] = useState(["Please Select A Date"])
 
-    for(let hours = 9; hours <= 12; hours++){
+    // for(let hours = 9; hours <= 12; hours++){
 
-        if(hours === 12) {
-            timeSlots.push(`${hours}:00 pm`)
-            timeSlots.push(`${hours}:30 pm`)
-        }  else {
-            timeSlots.push(`${hours}:00 am`)
-            timeSlots.push(`${hours}:30 am`)
-        }
-    }
+    //     if(hours === 12) {
+    //         timeSlots.push(`${hours}:00 pm`)
+    //         timeSlots.push(`${hours}:30 pm`)
+    //     }  else {
+    //         timeSlots.push(`${hours}:00 am`)
+    //         timeSlots.push(`${hours}:30 am`)
+    //     }
+    // }
 
-    for(let hours = 1; hours <= 9; hours++){
-        timeSlots.push(`${hours}:00 pm`)
-        timeSlots.push(`${hours}:30 pm`)
-    }
+    // for(let hours = 1; hours <= 9; hours++){
+    //     timeSlots.push(`${hours}:00 pm`)
+    //     timeSlots.push(`${hours}:30 pm`)
+    // }
+
+    useEffect(() => {
+    const fetchAvailableTimes = async (date) => {
+        const times = await fetchAPI(date);
+        setTimeSlots(times)
+        console.log(timeSlots)
+    };
+
+    fetchAvailableTimes(props.value);
+    console.log(props.value)
+    }, [props.value]);
+
 
 
     const slots = []
 
-    const [selectedTime, setSelectedTime] = useState("12:30 pm")
+    const [selectedTime, setSelectedTime] = useState("Select An Available Time")
 
     const [clicked, setClicked] = useState(false)
 
@@ -44,7 +57,7 @@ export default function TimeAndDate(props) {
     }
 
     for(let time = 0; time < timeSlots.length; time++ ) {
-        slots.push(<div key={time} onClick={() => setTime(time)} className="timeslot flex-row-center"><h2>{timeSlots[time]}</h2></div>)
+        slots.push(<div key={time} onClick={() => setTime(time)} className={`timeslot flex-row-center ${props.value === "2023-08-31" ? "timeslot-disabled" : ""}`}><h2>{timeSlots[time]}</h2></div>)
     }
 
     const [guestCount, setGuestCount] = useState(2)

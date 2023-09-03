@@ -26,23 +26,32 @@ export default function ProgressBar(props) {
     }
 
     return(
-        <section className="bar-section-container flex-column-center">
-            
+        <section className={`bar-section-container flex-column-center ${props.value === 3 ? "hide-bar" : ""}`}>
+
             <div className="bar-bubble-container">
-                <div className={`bar-bubble ${props.value === 0 ? "active-bubble": ""}`}>
-                    <CalendarIcon />
-                </div >
-                <div className="bar-line">
-
-                </div >
-                <div className={`bar-bubble ${props.value === 1 ? "active-bubble": ""}`}>
-                    <img className={fadeState} src={curserIconState} alt="" />
+                <div className="bubble-container">
+                    <div className={`bar-bubble ${props.value === 0 ? "active-bubble": ""}`}>
+                        <CalendarIcon />
+                    </div>
+                    <h2 className={`bubble-title ${props.value === 0 ? "": "gray-text"}`}>DATE & TIME</h2>
                 </div>
-                <div className="bar-line">
 
-                </div >
-                <div className={`bar-bubble ${props.value === 2 ? "active-bubble": ""}`}>
-                    <CheckSemiCircleMed />
+                <div className="bar-line"></div>
+
+                <div className="bubble-container">
+                    <div className={`bar-bubble ${props.value === 1 ? "active-bubble": ""}`}>
+                        <img className={fadeState} src={curserIconState} alt="" />
+                    </div>
+                    <h2 className={`bubble-title ${props.value === 1 ? "": "gray-text"}`}>Additional Options</h2>
+                </div>
+
+                <div className="bar-line"></div >
+
+                <div className="bubble-container">
+                    <div className={`bar-bubble ${props.value === 2 ? "active-bubble": ""}`}>
+                        <CheckSemiCircleMed/>
+                    </div>
+                    <h2 className={`bubble-title ${props.value === 2 ? "": "gray-text"}`}>Confirm Details</h2>
                 </div>
             </div>
         </section>

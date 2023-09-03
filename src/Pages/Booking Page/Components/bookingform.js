@@ -9,6 +9,7 @@ import TableArea from "./tablearea";
 import CheckSemiCircleSmall from "../../Icons/check-semi-circle-small";
 import SmallCircle from "../../../images/dot-icon.svg"
 import WarningIcon from "../../Icons/warning-icon";
+import HomeIcon from "../../../images/home-icon.svg"
 import { render, fireEvent, screen } from "@testing-library/react";
 
 
@@ -22,6 +23,7 @@ export  default function BookingForm (props) {
     const [standardGuestCount, setStandardGuestCount] = useState(2)
     const [wheelChairGuestCount, setWheelChairGuestCount] = useState(0)
     const [standardMinusWheelChair, setStandardMinusWheelChair] = useState(2)
+    const [formattedDate, setFormattedDate] = useState("")
 
     // Form Values
     const [pageOneBtnDisabled, setPageOneBtnDisabled] = useState(true)
@@ -141,7 +143,7 @@ export  default function BookingForm (props) {
     }
 
     useEffect(() => {
-        if(reserveDate.includes(null)) {
+        if(reserveDate.includes(null) || reserveTime === "Select An Available Time") {
             setPageOneBtnDisabled(true)
         } else {
             setPageOneBtnDisabled(false)
@@ -153,7 +155,8 @@ export  default function BookingForm (props) {
             setPageTwoBtnDisabled(true)
         }
 
-        console.log(reserveTableArea)
+        
+        console.log(window.location.href)
     },[reserveDate, reserveTime, reserveOccasion, reserveTableArea])
 
     const handleGuestChange = (selectedStandardGuests) => {
@@ -174,17 +177,21 @@ export  default function BookingForm (props) {
 
     const handleSubmit =(event) => {
         event.preventDefault()
-        window.location.href="/"
+        nextStage()
     }
 
-    const stages = [first(),second(),third()]
+    const handleFormattedDate = (selectedDate) => {
+        setFormattedDate(selectedDate)
+    }
+
+    const stages = [first(),second(),third(),confirmation()]
 
 
     const [currentStage, setCurrentStage] = useState(stages[stageCount])
 
     const nextStage = () => {
-        if(stageCount > 1) {
-            setStageCount(2)
+        if(stageCount > 2) {
+            setStageCount(3)
         } else {
             setStageCount(stageCount + 1)
         }
@@ -207,17 +214,11 @@ export  default function BookingForm (props) {
         props.onStageCountChange(stageCount)
     },[stageCount])
 
-    
+
 
 
 
     function first (){
-
-        // const [transition, setTransition] = useState(0)
-
-        useEffect(() => {
-            console.log(stageCount)
-        },[stageCount])
 
         return (
                 <div className={`booking-content-container`}>
@@ -225,13 +226,13 @@ export  default function BookingForm (props) {
                         <h2>RESERVE DATE</h2>
                         <p>Choose Your Desired Date</p>
                         <div className="reservation-line"></div>
-                        <Calender onDateChange={handleReserveDateChange}/>
+                        <Calender onDateChange={handleReserveDateChange} onSelectedDate={handleFormattedDate}/>
                     </div>
-                    <div className="timeguest-section-container flex-column-top-center">
+                    <div className={`timeguest-section-container flex-column-top-center`}>
                         <h2>RESERVE TIME</h2>
-                        <p>Choose Your Desired Time</p>
+                        <p>Select A Time and Guest Count</p>
                         <div className="reservation-line"></div>
-                        <TimeAndDate onTimeChange={handleReserveTimeChange} onGuestChange={handleGuestChange}/>
+                        <TimeAndDate onTimeChange={handleReserveTimeChange} onGuestChange={handleGuestChange} value={formattedDate}/>
                         <button aria-disabled={pageOneBtnDisabled} onClick={() => nextStage()} disabled={pageOneBtnDisabled} className="page-button next-color flex-row-center">
                             <h2>Next</h2>
                             <img src={RightArrow} alt="Next Page Icon" />
@@ -285,7 +286,7 @@ export  default function BookingForm (props) {
                     <div className="reservation-line"></div>
                     <ul>
                         <li className="booking-detail">
-                            
+
                             <h3>
                                 <img src={SmallCircle} alt=""/>
                                 Date :
@@ -337,7 +338,7 @@ export  default function BookingForm (props) {
                         </li>
                     </ul>
                     <div className="reservation-line"></div>
-                    <div className="seating-image interior-seats"></div>
+                    <div className={`${reserveTableArea === "Interior Table" ? "interior-seats" : "patio-seats"}`}></div>
                 </div>
                 <div className="contact-details">
                     <h2>DETAILS</h2>
@@ -379,7 +380,7 @@ export  default function BookingForm (props) {
 
                             <textarea onChange={changeSpecialRequest} className="confirm-form-textarea" name="special-requests" id="confirm-special-requests" placeholder="Special Requests" value={specialRequest}></textarea>
 
-                            <button aria-disabled={disabledState} disabled={disabledState} type="submit" className="page-button next-color flex-row-center">
+                            <button onClick={() => nextStage()} aria-disabled={disabledState} disabled={disabledState} type="submit" className="page-button next-color flex-row-center">
                                     <CheckSemiCircleSmall />
                                     <h2>Confirm</h2>
                             </button>
@@ -393,11 +394,28 @@ export  default function BookingForm (props) {
         )
     }
 
+    function confirmation() {
+
+        return (
+        
+            <div className="confrmation-content">
+                <h2>RESERVATION CONFIRMED, {firstName.toUpperCase()}!</h2>
+                <p>Stay tuned for an email with your booking details</p>
+                <p>Looking forward to your visit!</p>
+                <a href="/" className="home-btn">
+                    <img src={HomeIcon} alt="" />
+                    RETURN HOME
+                </a>
+            </div>
+        
+        )
+    }
+
 
     return (
         <section>
             <div className="slider-container">
-                <div className={`slider ${stageCount === 1 ? "nextSlideOne" : ""} ${stageCount === 2 ? "nextSlideTwo" : ""}`}>
+                <div className={`slider ${stageCount === 1 ? "nextSlideOne" : ""} ${stageCount === 2 ? "nextSlideTwo" : ""} ${stageCount === 3 ? "nextSlideThree" : ""}`}>
                     <div className={`slideOne flex-column-center ${stageCount === 0 ? "" : "slideHidden"}`}>
                         {first()}
                     </div>
@@ -407,6 +425,12 @@ export  default function BookingForm (props) {
                     <div className={`slideThree  flex-column-center ${stageCount === 2 ? "" : "slideHidden"} ${stageCount === 2 ? "" : "increase-slide-size"}`}>
                         {third()}
                     </div>
+                    <div className={`slideThree  flex-column-center ${stageCount === 3 ? "" : "slideHidden"}`}>
+                        {confirmation()}
+                    </div>
+                    {/* <div className={`slideFour  flex-column-center ${stageCount === 3 ? "" : "slideHidden"}`}>
+                        {confirmation()}
+                    </div> */}
                 </div>
             </div>
         </section>
