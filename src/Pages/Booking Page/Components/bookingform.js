@@ -20,7 +20,7 @@ export  default function BookingForm (props) {
     const [reserveTime, setReserveTime] = useState("")
     const [reserveTableArea, setReserveTableArea] = useState("")
     const [reserveOccasion, setReserveOccasion] = useState("")
-    const [standardGuestCount, setStandardGuestCount] = useState(2)
+    const [standardGuestCount, setStandardGuestCount] = useState("")
     const [wheelChairGuestCount, setWheelChairGuestCount] = useState(0)
     const [standardMinusWheelChair, setStandardMinusWheelChair] = useState(2)
     const [formattedDate, setFormattedDate] = useState("")
@@ -132,7 +132,7 @@ export  default function BookingForm (props) {
 
     useEffect(() => {
         setStandardMinusWheelChair(standardGuestCount - wheelChairGuestCount)
-    },[wheelChairGuestCount])
+    },[wheelChairGuestCount, standardGuestCount])
 
     const handleReserveDateChange = (date) => {
         setReserveDate(date)
@@ -161,6 +161,7 @@ export  default function BookingForm (props) {
 
     const handleGuestChange = (selectedStandardGuests) => {
         setStandardGuestCount(selectedStandardGuests)
+        console.log(standardMinusWheelChair)
     }
 
     const handleTableAreaChange = (selectedTable) => {
