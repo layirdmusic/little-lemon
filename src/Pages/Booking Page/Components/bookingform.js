@@ -51,7 +51,7 @@ export  default function BookingForm (props) {
     const handleFirstNameTouched = () => {
         setFirstNameTouched(true)
     }
-   
+
     const handleFirstNameUntouched = () => {
         setFirstNameUntouched(true)
     }
@@ -67,7 +67,7 @@ export  default function BookingForm (props) {
     const handleEmailTouched = () => {
         setEmailTouched(true)
     }
-    
+
     const handleEmailUntouched = () => {
         setEmailUntouched(true)
     }
@@ -134,8 +134,8 @@ export  default function BookingForm (props) {
         setStandardMinusWheelChair(standardGuestCount - wheelChairGuestCount)
     },[wheelChairGuestCount])
 
-    const handleReserveDateChange = (selectedDate) => {
-        setReserveDate(selectedDate)
+    const handleReserveDateChange = (date) => {
+        setReserveDate(date)
     }
 
     const handleReserveTimeChange = (selectedTime) => {
@@ -155,7 +155,7 @@ export  default function BookingForm (props) {
             setPageTwoBtnDisabled(true)
         }
 
-        
+
         console.log(window.location.href)
     },[reserveDate, reserveTime, reserveOccasion, reserveTableArea])
 
@@ -180,8 +180,8 @@ export  default function BookingForm (props) {
         nextStage()
     }
 
-    const handleFormattedDate = (selectedDate) => {
-        setFormattedDate(selectedDate)
+    const handleFormattedDate = (formattedDate) => {
+        setFormattedDate(formattedDate)
     }
 
     const stages = [first(),second(),third(),confirmation()]
@@ -345,28 +345,28 @@ export  default function BookingForm (props) {
                     <p>Enter Your Contact Info</p>
                     <div className="reservation-line"></div>
                     <form onSubmit={handleSubmit} >
-                            <input onChange={changeFirstName} onFocus={handleFirstNameTouched} onBlur={handleFirstNameUntouched} type="text" className="confirm-form-inputs" name="first-name" id="confirm-first-name" placeholder="First Name" autoComplete="on" required value={firstName}/>
+                            <input onChange={changeFirstName} onFocus={handleFirstNameTouched} onBlur={handleFirstNameUntouched} type="text" className="confirm-form-inputs" name="first-name" id="confirm-first-name" placeholder="First Name" autoComplete="on" required value={firstName} aria-label="First Name"/>
 
                             <div className={`inValidMessage flex-row-left ${!firstNameValid && firstNameTouched && firstNameUntouched ? "showInvalidMessage" : ""}`}>
                                 <WarningIcon />
                                 <p>Please enter your first name</p>
                             </div>
 
-                            <input onChange={changeLastName} onFocus={handleLastNameTouched} onBlur={handleLastNameUntouched} type="text" className="confirm-form-inputs" name="last-name" id="confirm-last-name" placeholder="Last Name" autoComplete="on" required value={lastName} />
+                            <input onChange={changeLastName} onFocus={handleLastNameTouched} onBlur={handleLastNameUntouched} type="text" className="confirm-form-inputs" name="last-name" id="confirm-last-name" placeholder="Last Name" autoComplete="on" required value={lastName} aria-label="Last Name" />
 
                             <div className={`inValidMessage flex-row-left ${!lastNameValid && lastNameTouched && lastNameUntouched ? "showInvalidMessage" : ""}`}>
                                 <WarningIcon />
                                 <p>Please enter your last name</p>
                             </div>
 
-                            <input onChange={changeEmail} onFocus={handleEmailTouched} onBlur={handleEmailUntouched} type="email" className="confirm-form-inputs" name="email" id="confirm-email" placeholder="Email" autoComplete="on" required value={email} />
+                            <input onChange={changeEmail} onFocus={handleEmailTouched} onBlur={handleEmailUntouched} type="email" className="confirm-form-inputs" name="email" id="confirm-email" placeholder="Email" autoComplete="on" required value={email} aria-label="Email Address" />
 
                             <div className={`inValidMessage flex-row-left ${!emailValid && emailTouched && emailUntouched ? "showInvalidMessage" : ""}`}>
                                 <WarningIcon />
                                 <p>Please enter your email</p>
                             </div>
 
-                            <input onChange={changePhone} onFocus={handlePhoneTouched} onBlur={handlePhoneUntouched} type="tel" className="confirm-form-inputs" name="phone-number" id="confirm-phone-number" placeholder="Phone Number  (Format: 123-456-7890)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required value={phone}></input>
+                            <input onChange={changePhone} onFocus={handlePhoneTouched} onBlur={handlePhoneUntouched} type="tel" className="confirm-form-inputs" name="phone-number" id="confirm-phone-number" placeholder="Phone Number  (Format: 123-456-7890)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required value={phone} aria-label="Phone Number"></input>
 
                             <div className={`inValidMessage flex-row-left ${!phoneValid && phoneTouched && phoneUntouched ? "showInvalidMessage" : ""} `}>
                                 <WarningIcon />
@@ -378,7 +378,7 @@ export  default function BookingForm (props) {
                                 <p>Incorrect Format (123-456-7890)</p>
                             </div>
 
-                            <textarea onChange={changeSpecialRequest} className="confirm-form-textarea" name="special-requests" id="confirm-special-requests" placeholder="Special Requests" value={specialRequest}></textarea>
+                            <textarea onChange={changeSpecialRequest} className="confirm-form-textarea" name="special-requests" id="confirm-special-requests" placeholder="Special Requests" value={specialRequest} aria-label="Special Requests"></textarea>
 
                             <button onClick={() => nextStage()} aria-disabled={disabledState} disabled={disabledState} type="submit" className="page-button next-color flex-row-center">
                                     <CheckSemiCircleSmall />
@@ -397,7 +397,7 @@ export  default function BookingForm (props) {
     function confirmation() {
 
         return (
-        
+
             <div className="confrmation-content">
                 <h2>RESERVATION CONFIRMED, {firstName.toUpperCase()}!</h2>
                 <p>Stay tuned for an email with your booking details</p>
@@ -407,7 +407,7 @@ export  default function BookingForm (props) {
                     RETURN HOME
                 </a>
             </div>
-        
+
         )
     }
 
@@ -428,9 +428,6 @@ export  default function BookingForm (props) {
                     <div className={`slideThree  flex-column-center ${stageCount === 3 ? "" : "slideHidden"}`}>
                         {confirmation()}
                     </div>
-                    {/* <div className={`slideFour  flex-column-center ${stageCount === 3 ? "" : "slideHidden"}`}>
-                        {confirmation()}
-                    </div> */}
                 </div>
             </div>
         </section>

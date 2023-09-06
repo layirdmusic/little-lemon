@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom';
 
 
 export default function Nav() {
-    
     const location = useLocation()
     return (
         <nav className="nav-section-container flex-row-center">

@@ -200,7 +200,7 @@ nav {
 
 .active-page {
     color: var(--darkgreen);
-    
+
 }
 
 .active-line {
@@ -659,10 +659,6 @@ font-size: 20px;
     align-items: center;
 }
 
-.bar-bubble-container h2 {
-    
-}
-
 .bubble-title {
     font-size: 18px;
     text-align: center;
@@ -773,8 +769,8 @@ font-size: 20px;
 .slideTwo {
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
-    
 }
+
 .slideThree {
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
@@ -1615,7 +1611,7 @@ font-size: 20px;
         align-items: center;
         justify-content: center;
     }
-    
+
     .team-image {
         background: url(./images/Mario\ and\ Adrian\ A.jpg) center center/cover;
         width: 261px;
@@ -1904,29 +1900,29 @@ font-size: 20px;
         height: 1500px;
         transition: transform 0.5s ease, opacity 0.5s ease;
     }
-    
+
     .slider-container {
         background-color: var(--darkgreen);
         padding: 30px;
         overflow: hidden;
         height: 100%;
         }
-    
+
     .slideSizeOne {
         height: 1100px;
     }
-    
+
     .slideSizeTwo {
         height: 1500px;
     }
 
     .slideTwo {
         height: 1100px;
-        
+
     }
     .slideInVisable {
         display: none;
-        
+
     }
 
     /* Reservations Form (End) */

@@ -33,7 +33,7 @@ export default function Specials() {
                         <div className="specials-card-text">
                             <div className="specials-card-title flex-row-center-spread">
                                 <h3 className="menu-item">
-                                    Baked Salmon
+                                    Lemon Cake
                                 </h3>
                                 <h3 className="menu-price">
                                     $12.99
@@ -50,7 +50,7 @@ export default function Specials() {
                         <div className="specials-card-text">
                             <div className="specials-card-title flex-row-center-spread">
                                 <h3 className="menu-item">
-                                    Baked Salmon
+                                    Greek Salad
                                 </h3>
                                 <h3 className="menu-price">
                                     $12.99

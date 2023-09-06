@@ -9,22 +9,6 @@ export default function TimeAndDate(props) {
 
     const [timeSlots, setTimeSlots] = useState(["Please Select A Date"])
 
-    // for(let hours = 9; hours <= 12; hours++){
-
-    //     if(hours === 12) {
-    //         timeSlots.push(`${hours}:00 pm`)
-    //         timeSlots.push(`${hours}:30 pm`)
-    //     }  else {
-    //         timeSlots.push(`${hours}:00 am`)
-    //         timeSlots.push(`${hours}:30 am`)
-    //     }
-    // }
-
-    // for(let hours = 1; hours <= 9; hours++){
-    //     timeSlots.push(`${hours}:00 pm`)
-    //     timeSlots.push(`${hours}:30 pm`)
-    // }
-
     useEffect(() => {
     const fetchAvailableTimes = async (date) => {
         const times = await fetchAPI(date);
