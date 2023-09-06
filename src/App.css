@@ -1779,6 +1779,11 @@ font-size: 20px;
         font-size: 15px;
     }
 
+    .bar-section-container {
+        margin-top: 70px;
+    }
+
+
     /* Booking Form Section (End) */
 
 
@@ -1925,6 +1930,7 @@ font-size: 20px;
 
     }
 
+    
     /* Reservations Form (End) */
 
 
